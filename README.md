@@ -17,7 +17,7 @@
 ### 使用
 - #### Gradle
     ```
-    implementation 'com.github.thatnight:tvideoplayer:0.1'
+    implementation 'com.github.thatnight:tvideoplayer:0.2'
     ```
 
 - #### 基本使用

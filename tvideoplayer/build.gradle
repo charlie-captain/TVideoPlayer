@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "0.1"
+        versionCode 2
+        versionName "0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -39,7 +39,7 @@ publish {
     userOrg = 'tonight'
     groupId = 'com.github.thatnight'
     artifactId = 'tvideoplayer'
-    publishVersion = '0.1'
+    publishVersion = '0.2'
     desc = 'A VideoPlayer'
     website = 'https://github.com/thatnight/TVideoPlayer'
 }
