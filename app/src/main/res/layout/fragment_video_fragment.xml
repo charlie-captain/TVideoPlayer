@@ -5,13 +5,13 @@
                 tools:context=".view.fragment.VideoFragmentV4">
 
 
-    <com.thatnight.videoplayer.player.TVideoPlayerView android:id="@+id/tvideo_video"
+    <com.thatnight.tvideoplayer.player.TVideoPlayerView android:id="@+id/tvideo_video"
                                                         android:layout_width="match_parent"
 
                                                         android:layout_height="match_parent"
                                                         android:layout_centerInParent="true"
     >
-    </com.thatnight.videoplayer.player.TVideoPlayerView>
+    </com.thatnight.tvideoplayer.player.TVideoPlayerView>
 
 
 </RelativeLayout>

@@ -94,38 +94,38 @@ public class TVideoPlayerUtil {
             bar.show();
         }
         scanForActivity(context).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         if (Build.VERSION.SDK_INT >= 28) {
             scanForActivity(context).getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
         } else if (context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism")) {
             //适配OPPO
-
+            scanForActivity(context).getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
         }
     }
 
     public static void hideToolbar(Context context) {
-        //        ActionBar bar = getActivityFromContext(context).getSupportActionBar();
-        //        if (bar != null) {
-        //            bar.hide();
-        //        }
-                scanForActivity(context).getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        ActionBar bar = getActivityFromContext(context).getSupportActionBar();
+        if (bar != null) {
+            bar.hide();
+        }
+        scanForActivity(context).getWindow()
+                .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //        if (Build.VERSION.SDK_INT >= 28) {
-        //            WindowManager.LayoutParams lp = scanForActivity(context).getWindow().getAttributes();
-        //            scanForActivity(context).getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        //            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-        //            scanForActivity(context).getWindow().setAttributes(lp);
-        //        } else if (context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism")) {
-        //            //适配OPPO
-        //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        //                scanForActivity(context).getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        if (Build.VERSION.SDK_INT >= 28) {
+            // TODO: 2018/6/11 适配Android P
+            //            WindowManager.LayoutParams lp = scanForActivity(context).getWindow().getAttributes();
+            //            scanForActivity(context).getWindow()
+            //                    .getDecorView()
+            //                    .setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            //            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+            //            scanForActivity(context).getWindow().setAttributes(lp);
+        } else if (context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism")) {
+            //适配OPPO
+            scanForActivity(context).getWindow()
+                    .getDecorView()
+                    .setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
-
-        //            } else {
-        //                WindowManager.LayoutParams params = scanForActivity(context).getWindow().getAttributes();
-        //                params.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        //                scanForActivity(context).getWindow().setAttributes(params);
-        //            }
-        //        }
+        }
 
     }
 
@@ -135,7 +135,7 @@ public class TVideoPlayerUtil {
      *
      * @return
      */
-    public static int getScreenWidth( ) {
+    public static int getScreenWidth() {
         DisplayMetrics dm = TVideoPlayerManager.getInstance().getContext().getResources().getDisplayMetrics();
         return dm.widthPixels;
     }

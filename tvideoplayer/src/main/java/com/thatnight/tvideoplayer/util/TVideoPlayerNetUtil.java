@@ -23,6 +23,7 @@ public class TVideoPlayerNetUtil {
             synchronized (TVideoPlayerNetUtil.class) {
                 if (INSTANCE == null) {
                     INSTANCE = new TVideoPlayerNetUtil();
+                    NotchUtil.init();
                 }
             }
         }

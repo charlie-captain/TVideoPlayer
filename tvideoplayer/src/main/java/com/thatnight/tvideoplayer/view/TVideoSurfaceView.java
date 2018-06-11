@@ -60,31 +60,31 @@ public class TVideoSurfaceView extends SurfaceView {
         int width = getDefaultSize(mVideoWidth, widthMeasureSpec);
         int height = getDefaultSize(mVideoHeight, heightMeasureSpec);
 
-//        if (mVideoWidth > 0 && mVideoHeight > 0) {
-//            if (mode == TVideoConstant.PORTRAIT) {
-//                if (mVideoWidth / mVideoHeight < widthSize / heightSize) {
-//                    height = heightSize;
-//                    width = mVideoWidth * height / mVideoHeight;
-//                } else{
-//                    width = widthSize;
-//                    height = mVideoHeight * width / mVideoWidth;
-//                }
-//            } else {
-//                if (mVideoWidth < mVideoHeight) {
-//                    //如果视频是竖向的
-//                    height = heightSize;
-//                    width = mVideoWidth * height / mVideoHeight;
-//                } else {
-//                    width = widthSize;
-//                    height = heightSize;
-//                }
-//            }
-//        }
+        if (mVideoWidth > 0 && mVideoHeight > 0) {
+            if (mode == TVideoConstant.PORTRAIT) {
+                if (mVideoWidth / mVideoHeight < widthSize / heightSize) {
+                    height = heightSize;
+                    width = mVideoWidth * height / mVideoHeight;
+                } else {
+                    width = widthSize;
+                    height = mVideoHeight * width / mVideoWidth;
+                }
+            } else {
+                if (mVideoWidth < mVideoHeight) {
+                    //如果视频是竖向的
+                    height = heightSize;
+                    width = mVideoWidth * height / mVideoHeight;
+                } else {
+                    width = widthSize;
+                    height = heightSize;
+                }
+            }
+        }
 
         Log.d("surfaceview", "onMeasure: " + width + "   " + height + "   " + mVideoWidth + "    " + mVideoHeight);
-        Log.d("surfaceview", "onMeasure: " + TVideoPlayerUtil.getScreenWidth() + "   " +TVideoPlayerUtil.getScreenHeight() );
+        Log.d("surfaceview", "onMeasure: " + TVideoPlayerUtil.getScreenWidth() + "   " + TVideoPlayerUtil.getScreenHeight());
 
-        setMeasuredDimension(TVideoPlayerUtil.getScreenWidth(), TVideoPlayerUtil.getScreenHeight());
+        setMeasuredDimension(width, height);
     }
 
 

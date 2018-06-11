@@ -27,7 +27,6 @@ public class VideoActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-
         return R.layout.activity_video;
     }
 

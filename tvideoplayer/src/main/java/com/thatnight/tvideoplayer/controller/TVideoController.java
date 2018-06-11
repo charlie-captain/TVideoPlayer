@@ -42,6 +42,7 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
     private ImageButton mIbtnPlay;
     private ImageButton mIbtnPlayCenter;
     private ImageButton mIbtnEnterFullScreen;
+    private ImageButton mIbtnBack;
 
     private TextView mTvRestart;
     private TextView mTvTitle;
@@ -89,6 +90,7 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
         mIbtnPlay = findViewById(R.id.ibtn_player_play);
         mIbtnPlayCenter = findViewById(R.id.ibtn_player_play_center);
         mIbtnEnterFullScreen = findViewById(R.id.ibtn_player_enter_fullscreen);
+        mIbtnBack = findViewById(R.id.ibtn_player_back);
 
 
         mTvTitle = findViewById(R.id.tv_player_title);
@@ -123,6 +125,7 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
         mIbtnPlay.setOnClickListener(this);
         mIbtnEnterFullScreen.setOnClickListener(this);
         mIbtnPlayCenter.setOnClickListener(this);
+        mIbtnBack.setOnClickListener(this);
         mASeekbar.setOnSeekBarChangeListener(this);
         setOnClickListener(this);
     }
@@ -182,6 +185,7 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
                 break;
             case STATE_PREPARING:
                 mLlTop.setVisibility(View.GONE);
+                mIbtnBack.setVisibility(View.GONE);
                 mIvCover.setVisibility(GONE);
                 mLlLoading.setVisibility(VISIBLE);
                 mLlCompleted.setVisibility(GONE);
@@ -252,10 +256,12 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
     public void onPlayModeChanged(int mode) {
         switch (mode) {
             case MODE_NORMAL:
+                mIbtnBack.setVisibility(View.GONE);
                 mIbtnEnterFullScreen.setImageResource(R.drawable.enter_fullscreen);
                 break;
             case MODE_FULLSCREEN:
             case MODE_FULLSCREEN_REVERSE:
+                mIbtnBack.setVisibility(View.VISIBLE);
                 mIbtnEnterFullScreen.setImageResource(R.drawable.exit_fullscreen);
                 break;
             default:
@@ -311,6 +317,7 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
         mASeekbar.setSecondaryProgress(0);
 
         mLlTop.setVisibility(View.VISIBLE);
+        mIbtnBack.setVisibility(View.GONE);
         mLlBottom.setVisibility(View.GONE);
         mLlError.setVisibility(View.GONE);
         mLlLoading.setVisibility(View.GONE);
@@ -436,6 +443,8 @@ public class TVideoController extends BaseTVideoController implements View.OnCli
         } else if (i == R.id.tv_player_net_start) {
             mIVideoPlayer.setUsingMobile(true);
             mIVideoPlayer.start();
+        } else if (i == R.id.ibtn_player_back) {
+            mIVideoPlayer.exitFullScreen(true);
         }
 
     }

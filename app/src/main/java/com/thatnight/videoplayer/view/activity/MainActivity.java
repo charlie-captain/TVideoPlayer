@@ -21,6 +21,7 @@ import com.thatnight.videoplayer.entity.VideoInfo;
 import com.thatnight.videoplayer.mvp.contract.VideoListContract;
 import com.thatnight.videoplayer.mvp.model.VideoListModel;
 import com.thatnight.videoplayer.mvp.presenter.VideoListPresenter;
+import com.thatnight.videoplayer.view.fragment.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +144,7 @@ public class MainActivity extends BaseActivity<VideoListPresenter> implements Vi
      */
     @Override
     public void onItemClick(int pos) {
-        Intent intent = new Intent(this, VideoActivityFullScreen.class);
+        Intent intent = new Intent(this, VideoActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable("video_info", mVideoInfoList.get(pos));
         intent.putExtras(bundle);

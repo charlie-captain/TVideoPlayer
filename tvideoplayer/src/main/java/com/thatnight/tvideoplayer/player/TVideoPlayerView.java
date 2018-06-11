@@ -24,6 +24,8 @@ import com.thatnight.tvideoplayer.controller.TVideoController;
 import com.thatnight.tvideoplayer.listener.ITVideoPlayerController;
 import com.thatnight.tvideoplayer.util.TVideoPlayerScreenRotateUtil;
 import com.thatnight.tvideoplayer.util.TVideoPlayerUtil;
+import com.thatnight.tvideoplayer.util.NotchUtil;
+import com.thatnight.tvideoplayer.util.notchutil.NotchInterface;
 import com.thatnight.tvideoplayer.view.TVideoSurfaceView;
 import com.thatnight.tvideoplayer.view.TVideoTextureView;
 
@@ -241,7 +243,6 @@ public class TVideoPlayerView extends BaseTVideoPlayer {
 
     @Override
     public void autoFullScreen(final int orientation) {
-        //        Log.d("handler", "autoFullScreen: " + orientation + "    " + mCurrentOrientation);
         if (mCurrentOrientation == orientation) {
             mHandler.removeCallbacksAndMessages(null);
             return;
@@ -296,6 +297,7 @@ public class TVideoPlayerView extends BaseTVideoPlayer {
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         viewGroup.addView(mContent, params);
 
+        NotchUtil.enterFullScreen(mController);
     }
 
 
@@ -321,6 +323,7 @@ public class TVideoPlayerView extends BaseTVideoPlayer {
         if (fromUser && mPlayerConfig.isAutoRotate) {
             TVideoPlayerScreenRotateUtil.getInstance(mContext).start();
         }
+        NotchUtil.exitFullScreen(mController);
     }
 
 

@@ -24,11 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.VideoActivityFullScreen"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".view.activity.VideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">

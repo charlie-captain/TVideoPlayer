@@ -1,4 +1,4 @@
-# [TVideoPlayer](https://github.com/thatnight/TVideoPlayer)
+# TVideoPlayer
 
 ### 特性
 
@@ -11,6 +11,8 @@
 - 采用Glide绑定生命周期方式（无需在Activity/Fragment回调方法）
 
 - 实时监测网络状态并给予提示
+
+- 适配各大厂商刘海屏
 
 ### 使用
 - #### Gradle
@@ -42,6 +44,7 @@
     //创建配置
     TVideoPlayerConfig config = new TVideoPlayerConfig.Builder()
             .autoRotate()    //开启重力感应
+            .looping()       //循环播放
             .build();
     //设置VideoPlayer
     mTVideoPlayer
@@ -66,5 +69,3 @@
 - [xiaoyanger0825/NiceVieoPlayer](https://github.com/xiaoyanger0825/NiceVieoPlayer)
 - [dueeeke/dkplayer](https://github.com/dueeeke/dkplayer)
 
-### Github
-https://github.com/thatnight/TVideoPlayer
