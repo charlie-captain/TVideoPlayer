@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/rl_player_controller"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+>
+
+
+    <!--预览图-->
+    <ImageView android:id="@+id/iv_player_cover" android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="fitXY"
+               android:layout_centerInParent="true"
+    />
+    <!--顶部-->
+    <include layout="@layout/layout_player_controller_top" android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"/>
+
+    <!--加载-->
+    <include layout="@layout/layout_player_loading" android:layout_width="wrap_content"
+             android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+    <!--播放完成-->
+    <include layout="@layout/layout_player_completed" android:layout_width="wrap_content"
+             android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+    <!--显示位置-->
+    <include layout="@layout/layout_player_position" android:layout_width="wrap_content"
+             android:layout_height="wrap_content" android:layout_centerInParent="true"
+    />
+    <!--亮度调节-->
+    <include layout="@layout/layout_player_brightness" android:layout_width="wrap_content"
+             android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+    <!--音量调节-->
+    <include layout="@layout/layout_player_volume" android:layout_width="wrap_content"
+             android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+
+    <!--错误重试-->
+    <include layout="@layout/layout_player_error" android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+    />
+
+    <!--网络提示-->
+    <include layout="@layout/layout_player_net_mobile" android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+    />
+    <!--底部控制器-->
+    <include layout="@layout/layout_player_controller_bottom" android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"/>
+
+    <!--中间播放按钮-->
+    <ImageButton
+        android:id="@+id/ibtn_player_play_center" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/play_center"
+    />
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/ll_player_error"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:visibility="gone">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:text="播放错误，请重试。"
+              android:textColor="@android:color/white"
+    />
+
+    <TextView android:id="@+id/tv_player_retry" android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:layout_marginTop="8dp"
+              android:background="@drawable/drawable_player_bg_error"
+              android:paddingBottom="8dp"
+              android:paddingLeft="16dp" android:paddingRight="16dp"
+              android:paddingTop="8dp"
+              android:text="点击重试" android:textColor="@android:color/white"/>
+
+    />
+</LinearLayout>
